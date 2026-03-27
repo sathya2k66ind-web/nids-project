@@ -6,7 +6,7 @@ import random
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -35,7 +35,6 @@ html, body, [class*="css"] {
 
 .stApp { background-color: #010a01 !important; }
 
-/* Scanline overlay */
 .stApp::before {
     content: "";
     position: fixed;
@@ -51,15 +50,12 @@ html, body, [class*="css"] {
     z-index: 9999;
 }
 
-/* Sidebar */
 section[data-testid="stSidebar"] {
     background: #000a00 !important;
     border-right: 1px solid #003300 !important;
 }
-
 section[data-testid="stSidebar"] * { color: #00ff41 !important; }
 
-/* Metrics */
 div[data-testid="stMetricValue"] {
     font-family: 'Orbitron', monospace !important;
     font-size: 28px !important;
@@ -67,7 +63,6 @@ div[data-testid="stMetricValue"] {
     color: #00ff41 !important;
     text-shadow: 0 0 10px #00ff41, 0 0 20px rgba(0,255,65,0.4) !important;
 }
-
 div[data-testid="stMetricLabel"] {
     font-family: 'Share Tech Mono', monospace !important;
     color: #006600 !important;
@@ -75,10 +70,8 @@ div[data-testid="stMetricLabel"] {
     letter-spacing: 2px !important;
     text-transform: uppercase !important;
 }
-
 div[data-testid="stMetricDelta"] svg { display: none; }
 
-/* Buttons */
 div[data-testid="stButton"] > button {
     background: transparent !important;
     border: 1px solid #00ff41 !important;
@@ -95,12 +88,8 @@ div[data-testid="stButton"] > button:hover {
     box-shadow: 0 0 20px rgba(0,255,65,0.5) !important;
 }
 
-/* Dataframe */
-div[data-testid="stDataFrame"] {
-    border: 1px solid #003300 !important;
-}
+div[data-testid="stDataFrame"] { border: 1px solid #003300 !important; }
 
-/* Tabs */
 .stTabs [data-baseweb="tab-list"] { background: transparent; gap: 8px; }
 .stTabs [data-baseweb="tab"] {
     background: transparent !important;
@@ -119,13 +108,11 @@ div[data-testid="stDataFrame"] {
     box-shadow: 0 0 10px rgba(0,255,65,0.3) !important;
 }
 
-/* Progress */
 div[data-testid="stProgress"] > div > div {
     background: #00ff41 !important;
     box-shadow: 0 0 8px #00ff41 !important;
 }
 
-/* Selectbox */
 div[data-baseweb="select"] > div {
     background: #000a00 !important;
     border: 1px solid #003300 !important;
@@ -133,7 +120,6 @@ div[data-baseweb="select"] > div {
     border-radius: 0 !important;
 }
 
-/* HUD Components */
 .hud-box {
     border: 1px solid #003300;
     background: rgba(0,255,65,0.02);
@@ -142,7 +128,6 @@ div[data-baseweb="select"] > div {
     position: relative;
     font-family: 'Share Tech Mono', monospace;
 }
-
 .hud-box::before {
     content: '';
     position: absolute;
@@ -151,7 +136,6 @@ div[data-baseweb="select"] > div {
     border-top: 2px solid #00ff41;
     border-left: 2px solid #00ff41;
 }
-
 .hud-box::after {
     content: '';
     position: absolute;
@@ -172,42 +156,23 @@ div[data-baseweb="select"] > div {
     padding-bottom: 6px;
 }
 
-.threat-critical {
-    color: #ff0000 !important;
-    text-shadow: 0 0 15px #ff0000, 0 0 30px rgba(255,0,0,0.5) !important;
-    animation: threatBlink 0.5s infinite !important;
-}
-.threat-high {
-    color: #ff6600 !important;
-    text-shadow: 0 0 12px #ff6600 !important;
-}
-.threat-elevated {
-    color: #ffaa00 !important;
-    text-shadow: 0 0 10px #ffaa00 !important;
-}
-.threat-low {
-    color: #00ff41 !important;
-    text-shadow: 0 0 8px #00ff41 !important;
-}
+.threat-critical { color: #ff0000 !important; text-shadow: 0 0 15px #ff0000, 0 0 30px rgba(255,0,0,0.5) !important; animation: threatBlink 0.5s infinite !important; }
+.threat-high     { color: #ff6600 !important; text-shadow: 0 0 12px #ff6600 !important; }
+.threat-elevated { color: #ffaa00 !important; text-shadow: 0 0 10px #ffaa00 !important; }
+.threat-low      { color: #00ff41 !important; text-shadow: 0 0 8px #00ff41 !important; }
 
 @keyframes threatBlink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    50%       { opacity: 0.3; }
 }
 
-.packet-normal  { color: #00ff41; }
-.packet-dos     { color: #ff0000; text-shadow: 0 0 6px #ff0000; }
-.packet-probe   { color: #ffaa00; text-shadow: 0 0 6px #ffaa00; }
-.packet-r2l     { color: #ff6600; text-shadow: 0 0 6px #ff6600; }
-.packet-u2r     { color: #ff00ff; text-shadow: 0 0 6px #ff00ff; }
+.packet-normal { color: #00ff41; }
+.packet-dos    { color: #ff0000; text-shadow: 0 0 6px #ff0000; }
+.packet-probe  { color: #ffaa00; text-shadow: 0 0 6px #ffaa00; }
+.packet-r2l    { color: #ff6600; text-shadow: 0 0 6px #ff6600; }
+.packet-u2r    { color: #ff00ff; text-shadow: 0 0 6px #ff00ff; }
 
-.stat-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
-    font-size: 13px;
-}
-
+.stat-row   { display: flex; gap: 8px; margin-bottom: 8px; font-size: 13px; }
 .stat-label { color: #006600; min-width: 120px; }
 .stat-val   { color: #00ff41; text-shadow: 0 0 6px #00ff41; }
 
@@ -223,149 +188,75 @@ div[data-baseweb="select"] > div {
     text-shadow: 0 0 8px rgba(0,255,65,0.4);
 }
 
-.radar-ring {
-    text-align: center;
-    font-size: 11px;
-    color: #003300;
-    letter-spacing: 1px;
-    margin: 4px 0;
-}
-
-/* Hide streamlit branding */
 #MainMenu, footer, header { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────
-# SYNTHETIC DATASET GENERATOR
-# Mirrors KDD Cup 99 feature structure
+# LOAD REAL KDD CUP 99 DATASET
 # ─────────────────────────────────────────
+COLUMNS = [
+    'duration','protocol_type','service','flag','src_bytes','dst_bytes',
+    'land','wrong_fragment','urgent','hot','num_failed_logins','logged_in',
+    'num_compromised','root_shell','su_attempted','num_root','num_file_creations',
+    'num_shells','num_access_files','num_outbound_cmds','is_host_login',
+    'is_guest_login','count','srv_count','serror_rate','srv_serror_rate',
+    'rerror_rate','srv_rerror_rate','same_srv_rate','diff_srv_rate',
+    'srv_diff_host_rate','dst_host_count','dst_host_srv_count',
+    'dst_host_same_srv_rate','dst_host_diff_srv_rate','dst_host_same_src_port_rate',
+    'dst_host_srv_diff_host_rate','dst_host_serror_rate','dst_host_srv_serror_rate',
+    'dst_host_rerror_rate','dst_host_srv_rerror_rate','label'
+]
+
+# KDD99 raw label → our 5 categories
+LABEL_MAP = {
+    'normal.': 'normal',
+    # DoS
+    'back.':'dos','land.':'dos','neptune.':'dos','pod.':'dos',
+    'smurf.':'dos','teardrop.':'dos','apache2.':'dos','udpstorm.':'dos',
+    'processtable.':'dos','worm.':'dos',
+    # Probe
+    'ipsweep.':'probe','nmap.':'probe','portsweep.':'probe','satan.':'probe',
+    'mscan.':'probe','saint.':'probe',
+    # R2L
+    'ftp_write.':'r2l','guess_passwd.':'r2l','imap.':'r2l','multihop.':'r2l',
+    'phf.':'r2l','spy.':'r2l','warezclient.':'r2l','warezmaster.':'r2l',
+    'sendmail.':'r2l','named.':'r2l','snmpgetattack.':'r2l','snmpguess.':'r2l',
+    'xlock.':'r2l','xsnoop.':'r2l','httptunnel.':'r2l',
+    # U2R
+    'buffer_overflow.':'u2r','loadmodule.':'u2r','perl.':'u2r','rootkit.':'u2r',
+    'mailbomb.':'u2r','ps.':'u2r','sqlattack.':'u2r','xterm.':'u2r',
+}
+
+FEATURES = [
+    'duration','src_bytes','dst_bytes','land','wrong_fragment','urgent',
+    'hot','num_failed_logins','logged_in','num_compromised','count',
+    'srv_count','serror_rate','srv_serror_rate','rerror_rate',
+    'same_srv_rate','diff_srv_rate'
+]
+
 @st.cache_data
-def generate_dataset(n_samples=8000):
-    np.random.seed(42)
-    attack_types = ['normal', 'dos', 'probe', 'r2l', 'u2r']
-    weights      = [0.50, 0.25, 0.12, 0.08, 0.05]
-    labels       = np.random.choice(attack_types, size=n_samples, p=weights)
-
-    data = []
-    for label in labels:
-        if label == 'normal':
-            row = {
-                'duration':          np.random.randint(0, 300),
-                'src_bytes':         np.random.randint(100, 5000),
-                'dst_bytes':         np.random.randint(100, 5000),
-                'land':              0,
-                'wrong_fragment':    np.random.randint(0, 2),
-                'urgent':            0,
-                'hot':               np.random.randint(0, 5),
-                'num_failed_logins': 0,
-                'logged_in':         1,
-                'num_compromised':   0,
-                'count':             np.random.randint(1, 100),
-                'srv_count':         np.random.randint(1, 100),
-                'serror_rate':       round(np.random.uniform(0, 0.1), 2),
-                'srv_serror_rate':   round(np.random.uniform(0, 0.1), 2),
-                'rerror_rate':       round(np.random.uniform(0, 0.1), 2),
-                'same_srv_rate':     round(np.random.uniform(0.8, 1.0), 2),
-                'diff_srv_rate':     round(np.random.uniform(0.0, 0.1), 2),
-            }
-        elif label == 'dos':
-            row = {
-                'duration':          np.random.randint(0, 5),
-                'src_bytes':         np.random.randint(0, 500),
-                'dst_bytes':         0,
-                'land':              np.random.randint(0, 2),
-                'wrong_fragment':    np.random.randint(0, 5),
-                'urgent':            0,
-                'hot':               0,
-                'num_failed_logins': 0,
-                'logged_in':         0,
-                'num_compromised':   0,
-                'count':             np.random.randint(200, 512),
-                'srv_count':         np.random.randint(200, 512),
-                'serror_rate':       round(np.random.uniform(0.8, 1.0), 2),
-                'srv_serror_rate':   round(np.random.uniform(0.8, 1.0), 2),
-                'rerror_rate':       round(np.random.uniform(0.0, 0.1), 2),
-                'same_srv_rate':     round(np.random.uniform(0.9, 1.0), 2),
-                'diff_srv_rate':     round(np.random.uniform(0.0, 0.05), 2),
-            }
-        elif label == 'probe':
-            row = {
-                'duration':          np.random.randint(0, 10),
-                'src_bytes':         np.random.randint(0, 1000),
-                'dst_bytes':         np.random.randint(0, 1000),
-                'land':              0,
-                'wrong_fragment':    0,
-                'urgent':            0,
-                'hot':               np.random.randint(0, 3),
-                'num_failed_logins': 0,
-                'logged_in':         0,
-                'num_compromised':   0,
-                'count':             np.random.randint(50, 512),
-                'srv_count':         np.random.randint(1, 50),
-                'serror_rate':       round(np.random.uniform(0.0, 0.3), 2),
-                'srv_serror_rate':   round(np.random.uniform(0.0, 0.3), 2),
-                'rerror_rate':       round(np.random.uniform(0.3, 0.8), 2),
-                'same_srv_rate':     round(np.random.uniform(0.0, 0.3), 2),
-                'diff_srv_rate':     round(np.random.uniform(0.4, 1.0), 2),
-            }
-        elif label == 'r2l':
-            row = {
-                'duration':          np.random.randint(0, 100),
-                'src_bytes':         np.random.randint(100, 3000),
-                'dst_bytes':         np.random.randint(100, 3000),
-                'land':              0,
-                'wrong_fragment':    0,
-                'urgent':            0,
-                'hot':               np.random.randint(0, 10),
-                'num_failed_logins': np.random.randint(1, 5),
-                'logged_in':         0,
-                'num_compromised':   0,
-                'count':             np.random.randint(1, 30),
-                'srv_count':         np.random.randint(1, 30),
-                'serror_rate':       round(np.random.uniform(0.0, 0.2), 2),
-                'srv_serror_rate':   round(np.random.uniform(0.0, 0.2), 2),
-                'rerror_rate':       round(np.random.uniform(0.0, 0.2), 2),
-                'same_srv_rate':     round(np.random.uniform(0.5, 1.0), 2),
-                'diff_srv_rate':     round(np.random.uniform(0.0, 0.2), 2),
-            }
-        else:  # u2r
-            row = {
-                'duration':          np.random.randint(0, 50),
-                'src_bytes':         np.random.randint(100, 2000),
-                'dst_bytes':         np.random.randint(100, 2000),
-                'land':              0,
-                'wrong_fragment':    0,
-                'urgent':            np.random.randint(0, 3),
-                'hot':               np.random.randint(5, 30),
-                'num_failed_logins': np.random.randint(0, 3),
-                'logged_in':         1,
-                'num_compromised':   np.random.randint(1, 10),
-                'count':             np.random.randint(1, 20),
-                'srv_count':         np.random.randint(1, 20),
-                'serror_rate':       round(np.random.uniform(0.0, 0.2), 2),
-                'srv_serror_rate':   round(np.random.uniform(0.0, 0.2), 2),
-                'rerror_rate':       round(np.random.uniform(0.0, 0.2), 2),
-                'same_srv_rate':     round(np.random.uniform(0.5, 1.0), 2),
-                'diff_srv_rate':     round(np.random.uniform(0.0, 0.3), 2),
-            }
-        row['label'] = label
-        data.append(row)
-
-    return pd.DataFrame(data)
+def load_real_dataset():
+    df = pd.read_csv('kddcup.csv', header=None, names=COLUMNS)
+    df['label'] = df['label'].map(LABEL_MAP)
+    df = df.dropna(subset=['label'])          # drop any unknown labels
+    df = df[FEATURES + ['label']]
+    # Sample 50k rows so training stays fast on Streamlit Cloud
+    if len(df) > 50000:
+        df = df.sample(50000, random_state=42)
+    return df
 
 
 # ─────────────────────────────────────────
-# TRAIN MODEL
+# TRAIN MODEL ON REAL DATA
 # ─────────────────────────────────────────
 @st.cache_resource
 def train_model():
-    df = generate_dataset(8000)
-    features = [c for c in df.columns if c != 'label']
-    X = df[features]
+    df = load_real_dataset()
+    X  = df[FEATURES]
     le = LabelEncoder()
-    y = le.fit_transform(df['label'])
+    y  = le.fit_transform(df['label'])
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42, stratify=y
@@ -380,37 +271,40 @@ def train_model():
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
-    acc = accuracy_score(y_test, y_pred)
+    acc    = accuracy_score(y_test, y_pred)
 
     fi = pd.DataFrame({
-        'feature':   features,
+        'feature':    FEATURES,
         'importance': model.feature_importances_
     }).sort_values('importance', ascending=False)
 
-    return model, le, features, acc, fi, X_test, y_test, y_pred
+    n_train = len(X_train)
+    n_test  = len(X_test)
+
+    return model, le, acc, fi, n_train, n_test
 
 
 # ─────────────────────────────────────────
-# SIMULATE ONE PACKET
+# SIMULATE ONE PACKET (live sim unchanged)
 # ─────────────────────────────────────────
-def simulate_packet(model, le, features):
+def simulate_packet(model, le):
     attack_types = ['normal', 'dos', 'probe', 'r2l', 'u2r']
     weights      = [0.55, 0.22, 0.10, 0.08, 0.05]
     true_label   = np.random.choice(attack_types, p=weights)
 
     templates = {
-        'normal': dict(duration=random.randint(0,300),   src_bytes=random.randint(100,5000),  dst_bytes=random.randint(100,5000),  land=0, wrong_fragment=random.randint(0,1), urgent=0, hot=random.randint(0,5),  num_failed_logins=0, logged_in=1, num_compromised=0, count=random.randint(1,100),  srv_count=random.randint(1,100),  serror_rate=round(random.uniform(0,.1),2),   srv_serror_rate=round(random.uniform(0,.1),2),  rerror_rate=round(random.uniform(0,.1),2),  same_srv_rate=round(random.uniform(.8,1),2), diff_srv_rate=round(random.uniform(0,.1),2)),
-        'dos':    dict(duration=random.randint(0,5),     src_bytes=random.randint(0,500),     dst_bytes=0,                         land=random.randint(0,1), wrong_fragment=random.randint(0,5), urgent=0, hot=0, num_failed_logins=0, logged_in=0, num_compromised=0, count=random.randint(200,512), srv_count=random.randint(200,512), serror_rate=round(random.uniform(.8,1),2),   srv_serror_rate=round(random.uniform(.8,1),2),  rerror_rate=round(random.uniform(0,.1),2),  same_srv_rate=round(random.uniform(.9,1),2), diff_srv_rate=round(random.uniform(0,.05),2)),
-        'probe':  dict(duration=random.randint(0,10),    src_bytes=random.randint(0,1000),    dst_bytes=random.randint(0,1000),    land=0, wrong_fragment=0, urgent=0, hot=random.randint(0,3), num_failed_logins=0, logged_in=0, num_compromised=0, count=random.randint(50,512),  srv_count=random.randint(1,50),   serror_rate=round(random.uniform(0,.3),2),   srv_serror_rate=round(random.uniform(0,.3),2),  rerror_rate=round(random.uniform(.3,.8),2), same_srv_rate=round(random.uniform(0,.3),2), diff_srv_rate=round(random.uniform(.4,1),2)),
-        'r2l':    dict(duration=random.randint(0,100),   src_bytes=random.randint(100,3000),  dst_bytes=random.randint(100,3000),  land=0, wrong_fragment=0, urgent=0, hot=random.randint(0,10), num_failed_logins=random.randint(1,5), logged_in=0, num_compromised=0, count=random.randint(1,30),   srv_count=random.randint(1,30),   serror_rate=round(random.uniform(0,.2),2),   srv_serror_rate=round(random.uniform(0,.2),2),  rerror_rate=round(random.uniform(0,.2),2),  same_srv_rate=round(random.uniform(.5,1),2), diff_srv_rate=round(random.uniform(0,.2),2)),
-        'u2r':    dict(duration=random.randint(0,50),    src_bytes=random.randint(100,2000),  dst_bytes=random.randint(100,2000),  land=0, wrong_fragment=0, urgent=random.randint(0,3), hot=random.randint(5,30), num_failed_logins=random.randint(0,3), logged_in=1, num_compromised=random.randint(1,10), count=random.randint(1,20), srv_count=random.randint(1,20), serror_rate=round(random.uniform(0,.2),2), srv_serror_rate=round(random.uniform(0,.2),2), rerror_rate=round(random.uniform(0,.2),2), same_srv_rate=round(random.uniform(.5,1),2), diff_srv_rate=round(random.uniform(0,.3),2)),
+        'normal': dict(duration=random.randint(0,300),  src_bytes=random.randint(100,5000), dst_bytes=random.randint(100,5000), land=0, wrong_fragment=random.randint(0,1), urgent=0, hot=random.randint(0,5),  num_failed_logins=0, logged_in=1, num_compromised=0, count=random.randint(1,100),  srv_count=random.randint(1,100),  serror_rate=round(random.uniform(0,.1),2),  srv_serror_rate=round(random.uniform(0,.1),2), rerror_rate=round(random.uniform(0,.1),2),  same_srv_rate=round(random.uniform(.8,1),2), diff_srv_rate=round(random.uniform(0,.1),2)),
+        'dos':    dict(duration=random.randint(0,5),    src_bytes=random.randint(0,500),    dst_bytes=0,                        land=random.randint(0,1), wrong_fragment=random.randint(0,5), urgent=0, hot=0, num_failed_logins=0, logged_in=0, num_compromised=0, count=random.randint(200,512), srv_count=random.randint(200,512), serror_rate=round(random.uniform(.8,1),2),  srv_serror_rate=round(random.uniform(.8,1),2), rerror_rate=round(random.uniform(0,.1),2),  same_srv_rate=round(random.uniform(.9,1),2), diff_srv_rate=round(random.uniform(0,.05),2)),
+        'probe':  dict(duration=random.randint(0,10),   src_bytes=random.randint(0,1000),   dst_bytes=random.randint(0,1000),   land=0, wrong_fragment=0, urgent=0, hot=random.randint(0,3), num_failed_logins=0, logged_in=0, num_compromised=0, count=random.randint(50,512),  srv_count=random.randint(1,50),   serror_rate=round(random.uniform(0,.3),2),  srv_serror_rate=round(random.uniform(0,.3),2), rerror_rate=round(random.uniform(.3,.8),2), same_srv_rate=round(random.uniform(0,.3),2), diff_srv_rate=round(random.uniform(.4,1),2)),
+        'r2l':    dict(duration=random.randint(0,100),  src_bytes=random.randint(100,3000), dst_bytes=random.randint(100,3000), land=0, wrong_fragment=0, urgent=0, hot=random.randint(0,10), num_failed_logins=random.randint(1,5), logged_in=0, num_compromised=0, count=random.randint(1,30),   srv_count=random.randint(1,30),   serror_rate=round(random.uniform(0,.2),2),  srv_serror_rate=round(random.uniform(0,.2),2), rerror_rate=round(random.uniform(0,.2),2),  same_srv_rate=round(random.uniform(.5,1),2), diff_srv_rate=round(random.uniform(0,.2),2)),
+        'u2r':    dict(duration=random.randint(0,50),   src_bytes=random.randint(100,2000), dst_bytes=random.randint(100,2000), land=0, wrong_fragment=0, urgent=random.randint(0,3), hot=random.randint(5,30), num_failed_logins=random.randint(0,3), logged_in=1, num_compromised=random.randint(1,10), count=random.randint(1,20), srv_count=random.randint(1,20), serror_rate=round(random.uniform(0,.2),2), srv_serror_rate=round(random.uniform(0,.2),2), rerror_rate=round(random.uniform(0,.2),2), same_srv_rate=round(random.uniform(.5,1),2), diff_srv_rate=round(random.uniform(0,.3),2)),
     }
 
     pkt = templates[true_label]
-    X = pd.DataFrame([pkt])[features]
+    X   = pd.DataFrame([pkt])[FEATURES]
     pred_encoded = model.predict(X)[0]
-    pred_label = le.inverse_transform([pred_encoded])[0]
-    conf = model.predict_proba(X)[0].max()
+    pred_label   = le.inverse_transform([pred_encoded])[0]
+    conf         = model.predict_proba(X)[0].max()
     src_ip = f"{random.randint(1,254)}.{random.randint(0,254)}.{random.randint(0,254)}.{random.randint(1,254)}"
     dst_ip = f"192.168.{random.randint(0,5)}.{random.randint(1,50)}"
 
@@ -440,13 +334,13 @@ def get_threat(attack_counts):
 
 
 # ─────────────────────────────────────────
-# SESSION STATE INIT
+# SESSION STATE
 # ─────────────────────────────────────────
-if 'launched'       not in st.session_state: st.session_state.launched = False
-if 'running'        not in st.session_state: st.session_state.running  = False
-if 'packets'        not in st.session_state: st.session_state.packets  = []
-if 'attack_counts'  not in st.session_state: st.session_state.attack_counts = {'normal':0,'dos':0,'probe':0,'r2l':0,'u2r':0}
-if 'history'        not in st.session_state: st.session_state.history  = []
+if 'launched'      not in st.session_state: st.session_state.launched      = False
+if 'running'       not in st.session_state: st.session_state.running       = False
+if 'packets'       not in st.session_state: st.session_state.packets       = []
+if 'attack_counts' not in st.session_state: st.session_state.attack_counts = {'normal':0,'dos':0,'probe':0,'r2l':0,'u2r':0}
+if 'history'       not in st.session_state: st.session_state.history       = []
 
 
 # ─────────────────────────────────────────
@@ -468,7 +362,7 @@ def show_landing():
     </div>
     <div style="font-family:'Share Tech Mono',monospace;font-size:16px;color:#006600;
                 letter-spacing:3px;margin-bottom:36px;">
-        >> NETWORK SECURITY SYSTEM v1.0 // ML-POWERED
+        >> NETWORK SECURITY SYSTEM v2.0 // ML-POWERED // KDD CUP 99
     </div>
     """, unsafe_allow_html=True)
 
@@ -484,7 +378,7 @@ def show_landing():
         </div>
         <div style="border:1px solid #003300;padding:16px;background:rgba(0,255,65,0.02);">
             <div style="font-family:'Orbitron',monospace;font-size:10px;color:#006600;letter-spacing:2px;margin-bottom:8px;">DATASET</div>
-            <div style="font-size:14px;color:#00ff41;">8,000 PACKETS<br><span style="color:#005500;font-size:12px;">KDD Cup 99 schema</span></div>
+            <div style="font-size:14px;color:#00ff41;">KDD CUP 99<br><span style="color:#005500;font-size:12px;">494K real packets</span></div>
         </div>
         <div style="border:1px solid #003300;padding:16px;background:rgba(0,255,65,0.02);">
             <div style="font-family:'Orbitron',monospace;font-size:10px;color:#006600;letter-spacing:2px;margin-bottom:8px;">LIVE SIM</div>
@@ -519,14 +413,14 @@ def show_landing():
 # MAIN APP
 # ─────────────────────────────────────────
 def show_main():
-    with st.spinner("▶ LOADING DETECTION MODEL..."):
-        model, le, features, acc, fi, X_test, y_test, y_pred = train_model()
+    with st.spinner("▶ LOADING REAL KDD CUP 99 DATASET & TRAINING MODEL..."):
+        model, le, acc, fi, n_train, n_test = train_model()
 
     threat_level, threat_color = get_threat(st.session_state.attack_counts)
-    total_packets  = len(st.session_state.packets)
-    total_attacks  = total_packets - st.session_state.attack_counts.get('normal', 0)
+    total_packets = len(st.session_state.packets)
+    total_attacks = total_packets - st.session_state.attack_counts.get('normal', 0)
 
-    # ── TOP BAR ──
+    # TOP BAR
     st.markdown(f"""
     <div style="display:flex;justify-content:space-between;align-items:center;
                 border-bottom:1px solid #003300;padding-bottom:12px;margin-bottom:20px;">
@@ -541,7 +435,7 @@ def show_main():
     </div>
     """, unsafe_allow_html=True)
 
-    # ── METRIC ROW ──
+    # METRIC ROW
     c1, c2, c3, c4, c5 = st.columns(5)
     with c1: st.metric("PACKETS ANALYZED", f"{total_packets:,}")
     with c2: st.metric("ATTACKS DETECTED", f"{total_attacks:,}")
@@ -551,12 +445,9 @@ def show_main():
 
     st.markdown("<div style='border-bottom:1px solid #002200;margin:16px 0;'></div>", unsafe_allow_html=True)
 
-    # ── TABS ──
     tab1, tab2, tab3 = st.tabs(["◈ LIVE MONITOR", "◈ MODEL INTEL", "◈ THREAT ANALYSIS"])
 
-    # ════════════════════════════
-    # TAB 1 — LIVE MONITOR
-    # ════════════════════════════
+    # ── TAB 1: LIVE MONITOR ──
     with tab1:
         col_left, col_right = st.columns([2, 1])
 
@@ -578,13 +469,12 @@ def show_main():
                     st.session_state.running       = False
                     st.rerun()
 
-            # Packet log
-            log_placeholder = st.empty()
+            log_placeholder   = st.empty()
             chart_placeholder = st.empty()
 
             if st.session_state.running:
                 for _ in range(8):
-                    pkt = simulate_packet(model, le, features)
+                    pkt = simulate_packet(model, le)
                     st.session_state.packets.append(pkt)
                     st.session_state.attack_counts[pkt['pred']] += 1
                     st.session_state.history.append({
@@ -596,19 +486,12 @@ def show_main():
                         'u2r':    st.session_state.attack_counts['u2r'],
                     })
 
-            # Render packet log
-            recent = list(reversed(st.session_state.packets[-20:]))
-            COLOR_MAP = {
-                'normal': '#00ff41',
-                'dos':    '#ff0000',
-                'probe':  '#ffaa00',
-                'r2l':    '#ff6600',
-                'u2r':    '#ff00ff',
-            }
+            recent    = list(reversed(st.session_state.packets[-20:]))
+            COLOR_MAP = {'normal':'#00ff41','dos':'#ff0000','probe':'#ffaa00','r2l':'#ff6600','u2r':'#ff00ff'}
 
             log_html = '<div style="font-family:\'Share Tech Mono\',monospace;font-size:13px;border:1px solid #002200;background:#000500;padding:12px;height:320px;overflow-y:auto;">'
             for p in recent:
-                c = COLOR_MAP.get(p['pred'], '#00ff41')
+                c    = COLOR_MAP.get(p['pred'], '#00ff41')
                 flag = '' if p['pred'] == 'normal' else ' ⚠'
                 log_html += f"""
                 <div style="margin-bottom:4px;border-bottom:1px solid #001100;padding-bottom:4px;">
@@ -621,7 +504,6 @@ def show_main():
             log_html += '</div>'
             log_placeholder.markdown(log_html, unsafe_allow_html=True)
 
-            # Render chart
             if st.session_state.history:
                 hist_df = pd.DataFrame(st.session_state.history).tail(30)
                 chart_placeholder.line_chart(
@@ -636,14 +518,12 @@ def show_main():
 
         with col_right:
             st.markdown('<div class="section-header">// THREAT HUD //</div>', unsafe_allow_html=True)
-
             threat_level, threat_color = get_threat(st.session_state.attack_counts)
-            threat_class = f"threat-{threat_level.lower()}"
 
             st.markdown(f"""
             <div class="hud-box" style="text-align:center;padding:24px;">
                 <div class="hud-title">THREAT LEVEL</div>
-                <div class="orbitron" style="font-family:'Orbitron',monospace;font-size:28px;font-weight:900;
+                <div style="font-family:'Orbitron',monospace;font-size:28px;font-weight:900;
                             color:{threat_color};text-shadow:0 0 20px {threat_color};letter-spacing:4px;">
                     {threat_level}
                 </div>
@@ -654,15 +534,13 @@ def show_main():
             """, unsafe_allow_html=True)
 
             st.markdown('<div class="section-header" style="margin-top:16px;">// ATTACK BREAKDOWN //</div>', unsafe_allow_html=True)
-
             attack_labels = {
-                'normal': ('NORMAL',  '#00ff41'),
-                'dos':    ('DoS',     '#ff0000'),
-                'probe':  ('PROBE',   '#ffaa00'),
-                'r2l':    ('R2L',     '#ff6600'),
-                'u2r':    ('U2R',     '#ff00ff'),
+                'normal': ('NORMAL', '#00ff41'),
+                'dos':    ('DoS',    '#ff0000'),
+                'probe':  ('PROBE',  '#ffaa00'),
+                'r2l':    ('R2L',    '#ff6600'),
+                'u2r':    ('U2R',    '#ff00ff'),
             }
-
             for key, (label, color) in attack_labels.items():
                 count = st.session_state.attack_counts.get(key, 0)
                 pct   = int(count / total_packets * 100) if total_packets else 0
@@ -688,9 +566,7 @@ def show_main():
             </div>
             """, unsafe_allow_html=True)
 
-    # ════════════════════════════
-    # TAB 2 — MODEL INTEL
-    # ════════════════════════════
+    # ── TAB 2: MODEL INTEL ──
     with tab2:
         col_a, col_b = st.columns(2)
 
@@ -704,8 +580,9 @@ def show_main():
                 <div class="stat-row"><span class="stat-label">MAX DEPTH</span><span class="stat-val">15 nodes</span></div>
                 <div class="stat-row"><span class="stat-label">ACCURACY</span><span class="stat-val">{acc*100:.2f}%</span></div>
                 <div class="stat-row"><span class="stat-label">FEATURES</span><span class="stat-val">17 signals</span></div>
-                <div class="stat-row"><span class="stat-label">TRAINING SET</span><span class="stat-val">6,400 packets</span></div>
-                <div class="stat-row"><span class="stat-label">TEST SET</span><span class="stat-val">1,600 packets</span></div>
+                <div class="stat-row"><span class="stat-label">DATASET</span><span class="stat-val">KDD Cup 99</span></div>
+                <div class="stat-row"><span class="stat-label">TRAINING SET</span><span class="stat-val">{n_train:,} packets</span></div>
+                <div class="stat-row"><span class="stat-label">TEST SET</span><span class="stat-val">{n_test:,} packets</span></div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -728,12 +605,9 @@ def show_main():
                 </div>
                 """, unsafe_allow_html=True)
 
-    # ════════════════════════════
-    # TAB 3 — THREAT ANALYSIS
-    # ════════════════════════════
+    # ── TAB 3: THREAT ANALYSIS ──
     with tab3:
         st.markdown('<div class="section-header">// ATTACK TYPE REFERENCE //</div>', unsafe_allow_html=True)
-
         attacks_info = {
             "DoS (Denial of Service)": {
                 "color": "#ff0000",
@@ -760,7 +634,6 @@ def show_main():
                 "real": "Buffer Overflow, Rootkit, Loadmodule"
             },
         }
-
         for name, info in attacks_info.items():
             with st.expander(f"► {name}"):
                 st.markdown(f"""
@@ -775,7 +648,7 @@ def show_main():
                 </div>
                 """, unsafe_allow_html=True)
 
-    # Sidebar
+    # SIDEBAR
     with st.sidebar:
         st.markdown('<div class="section-header">// SYSTEM STATUS //</div>', unsafe_allow_html=True)
         status = "◉ ACTIVE" if st.session_state.running else "◎ STANDBY"
@@ -795,14 +668,14 @@ def show_main():
         st.markdown('<div class="section-header" style="margin-top:20px;">// HOW IT WORKS //</div>', unsafe_allow_html=True)
         st.markdown("""
         <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:#005500;line-height:1.8;">
-            1. Packet features extracted<br>
-               (17 network signals)<br><br>
-            2. Random Forest classifies<br>
-               each packet in real time<br><br>
-            3. Threat level computed<br>
-               from attack ratio<br><br>
-            4. Live dashboard updates<br>
-               with each new packet
+            1. Real KDD Cup 99 data loaded<br>
+               (494K labeled packets)<br><br>
+            2. Random Forest trained<br>
+               on 40K packet sample<br><br>
+            3. Live sim feeds packets<br>
+               through trained model<br><br>
+            4. Threat level computed<br>
+               from attack ratio
         </div>
         """, unsafe_allow_html=True)
 
